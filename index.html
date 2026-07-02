@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raíces — Argentina Relocation & Travel Experts</title>
+<meta name="description" content="Raíces helps foreigners explore, settle, and relocate to Argentina. Professional, bilingual concierge service based in Buenos Aires.">
+<link href="https://fonts.googleapis.com/css2?family=Belleza&family=Lato:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --olive: #4c512c;
+    --olive-dark: #323620;
+    --rose: #b79093;
+    --rose-light: #f5eced;
+    --olive-light: #f0f0e8;
+    --text: #2a2a2a;
+    --text-mid: #555;
+    --text-light: #888;
+    --border: #e0e0d8;
+    --white: #fff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    color: var(--text);
+    background: var(--white);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  h1, h2, h3, h4, .belleza { font-family: 'Belleza', serif; font-weight: 400; }
+
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ── LANG TOGGLE ── */
+  .lang-bar {
+    background: var(--olive-dark);
+    padding: 6px 40px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 6px;
+  }
+  .lang-btn {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 3px 8px;
+    border-radius: 3px;
+    transition: color 0.2s;
+  }
+  .lang-btn.active {
+    color: #fff;
+    background: rgba(255,255,255,0.12);
+  }
+  .lang-btn:hover { color: #fff; }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--olive);
+    padding: 0 40px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.15);
+  }
+  .nav-logo {
+    color: #fff;
+    font-family: 'Belleza', serif;
+    font-size: 22px;
+    letter-spacing: 0.06em;
+  }
+  .nav-logo span {
+    display: block;
+    font-family: 'Lato', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.55);
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-top: 1px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.7);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 400;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: #fff; }
+  .nav-wa {
+    background: var(--rose);
+    color: #fff !important;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    padding: 9px 18px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    transition: opacity 0.2s;
+  }
+  .nav-wa:hover { opacity: 0.88; }
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 4px;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 1.5px;
+    background: #fff;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--olive);
+    z-index: 200;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a, .mobile-menu button {
+    color: #fff;
+    font-size: 22px;
+    font-family: 'Belleza', serif;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  .mobile-close {
+    position: absolute;
+    top: 20px; right: 24px;
+    color: rgba(255,255,255,0.6);
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  /* ── SECTIONS ── */
+  .section { padding: 72px 40px; }
+  .section-alt { padding: 72px 40px; background: var(--olive-light); }
+  .section-rose { padding: 72px 40px; background: var(--rose-light); }
+  .section-dark { padding: 72px 40px; background: var(--olive); }
+
+  .eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 12px;
+    font-weight: 400;
+  }
+  .eyebrow-light { color: rgba(255,255,255,0.5); }
+  .section-title { font-size: 32px; color: var(--olive); margin-bottom: 14px; line-height: 1.2; }
+  .section-title-light { color: #fff; }
+  .section-sub { font-size: 15px; color: var(--text-mid); line-height: 1.85; max-width: 520px; margin-bottom: 40px; }
+  .section-sub-light { color: rgba(255,255,255,0.62); }
+
+  /* ── HERO ── */
+  #hero {
+    background: var(--olive);
+    padding: 88px 40px 72px;
+    position: relative;
+    overflow: hidden;
+  }
+  #hero::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 480px; height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(183,144,147,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 600px; position: relative; }
+  .hero-eyebrow {
+    color: var(--rose);
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-bottom: 20px;
+  }
+  #hero h1 {
+    font-family: 'Belleza', serif;
+    color: #fff;
+    font-size: 48px;
+    line-height: 1.15;
+    margin-bottom: 22px;
+  }
+  #hero h1 em { color: var(--rose); font-style: normal; }
+  .hero-p {
+    color: rgba(255,255,255,0.66);
+    font-size: 16px;
+    line-height: 1.85;
+    max-width: 460px;
+    margin-bottom: 36px;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-rose {
+    background: var(--rose);
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 14px 26px;
+    border-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: opacity 0.2s;
+    font-weight: 400;
+  }
+  .btn-rose:hover { opacity: 0.88; }
+  .btn-ghost {
+    border: 1px solid rgba(255,255,255,0.28);
+    color: rgba(255,255,255,0.78);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 14px 26px;
+    border-radius: 3px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.6); color: #fff; }
+  .trust-row {
+    margin-top: 48px;
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 28px;
+  }
+  .trust-item {
+    color: rgba(255,255,255,0.44);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .trust-line { width: 20px; height: 1px; background: var(--rose); flex-shrink: 0; }
+
+  /* ── SERVICES ── */
+  .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .tier-card {
+    background: var(--white);
+    border: 0.5px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  .tier-card:hover { box-shadow: 0 6px 24px rgba(76,81,44,0.08); }
+  .tier-card.featured { border: 2px solid var(--rose); }
+  .tier-top {
+    padding: 22px 22px 18px;
+    border-bottom: 0.5px solid var(--border);
+    position: relative;
+  }
+  .tier-badge {
+    position: absolute; top: 0; right: 0;
+    background: var(--rose-light);
+    color: #8a6366;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 0 4px 0 4px;
+    font-weight: 400;
+  }
+  .tier-icon { font-size: 22px; color: var(--rose); margin-bottom: 12px; }
+  .tier-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 5px;
+    font-weight: 400;
+  }
+  .tier-name { font-family: 'Belleza', serif; font-size: 19px; color: var(--olive); }
+  .tier-body { padding: 18px 22px; }
+  .tier-who { font-size: 12px; color: var(--text-light); margin-bottom: 14px; line-height: 1.6; }
+  .tier-list { list-style: none; margin-bottom: 18px; }
+  .tier-list li {
+    font-size: 13px;
+    color: var(--text-mid);
+    padding: 4px 0;
+    display: flex;
+    gap: 8px;
+    line-height: 1.5;
+  }
+  .tier-list li::before { content: "—"; color: var(--rose); flex-shrink: 0; }
+  .tier-price { font-family: 'Belleza', serif; font-size: 18px; color: var(--olive); border-top: 0.5px solid var(--border); padding-top: 14px; }
+  .tier-price small { font-family: 'Lato', sans-serif; font-size: 11px; color: var(--text-light); display: block; margin-top: 3px; font-weight: 300; }
+
+  /* ── WHY ── */
+  .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .why-card {
+    background: var(--white);
+    border: 0.5px solid var(--border);
+    border-radius: 6px;
+    padding: 26px;
+  }
+  .why-icon { font-size: 22px; color: var(--rose); margin-bottom: 14px; }
+  .why-title { font-family: 'Belleza', serif; font-size: 17px; color: var(--olive); margin-bottom: 8px; }
+  .why-text { font-size: 13px; color: var(--text-mid); line-height: 1.75; }
+
+  /* ── ABOUT ── */
+  .about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 56px; align-items: start; }
+  .about-text p { font-size: 15px; color: var(--text-mid); line-height: 1.9; margin-bottom: 18px; }
+  .about-text p strong { font-weight: 400; color: var(--olive); }
+  .about-text p:last-child { margin-bottom: 0; }
+  .credentials { display: flex; flex-direction: column; gap: 10px; margin: 28px 0; }
+  .cred-pill {
+    background: var(--rose-light);
+    border: 1px solid #e2c8c9;
+    color: #8a6366;
+    font-size: 12px;
+    padding: 9px 16px;
+    border-radius: 3px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .about-aside {
+    background: var(--olive);
+    border-radius: 6px;
+    padding: 28px;
+    position: sticky;
+    top: 84px;
+  }
+  .aside-quote {
+    font-family: 'Belleza', serif;
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    border-left: 2px solid var(--rose);
+    padding-left: 16px;
+  }
+  .aside-note { font-size: 12px; color: rgba(255,255,255,0.5); line-height: 1.6; margin-bottom: 20px; }
+  .aside-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--rose);
+    color: #fff;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 10px 16px;
+    border-radius: 3px;
+    transition: opacity 0.2s;
+  }
+  .aside-btn:hover { opacity: 0.88; }
+
+  /* ── TESTIMONIALS ── */
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .testi-card {
+    background: var(--white);
+    border-left: 2px solid var(--rose);
+    padding: 22px;
+    border-radius: 0 6px 6px 0;
+  }
+  .testi-text { font-family: 'Lato', sans-serif; font-style: italic; font-size: 13px; color: var(--text-mid); line-height: 1.8; margin-bottom: 16px; font-weight: 300; }
+  .testi-author { display: flex; align-items: center; gap: 10px; }
+  .testi-avatar {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--rose);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .testi-name { font-size: 13px; font-weight: 400; color: var(--olive); }
+  .testi-from { font-size: 11px; color: var(--text-light); }
+
+  /* ── HOW IT WORKS ── */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; position: relative; }
+  .steps::before {
+    content: '';
+    position: absolute;
+    top: 17px; left: calc(16.66% + 17px); right: calc(16.66% + 17px);
+    height: 1px;
+    background: var(--rose);
+    opacity: 0.3;
+  }
+  .step { padding: 0 20px; text-align: center; }
+  .step-num {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--olive);
+    color: #fff;
+    font-family: 'Belleza', serif;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+  }
+  .step-title { font-family: 'Belleza', serif; font-size: 16px; color: var(--white); margin-bottom: 8px; }
+  .step-desc { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.7; font-weight: 300; }
+
+  /* ── CTA ── */
+  .cta-inner { text-align: center; max-width: 520px; margin: 0 auto; }
+  .cta-inner h2 { font-family: 'Belleza', serif; font-size: 32px; color: #fff; margin-bottom: 12px; }
+  .cta-inner p { color: rgba(255,255,255,0.6); font-size: 15px; margin-bottom: 32px; line-height: 1.8; }
+  .cta-note { margin-top: 14px; font-size: 11px; color: rgba(255,255,255,0.28); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--olive-dark);
+    padding: 32px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-brand { font-family: 'Belleza', serif; color: rgba(255,255,255,0.7); font-size: 15px; }
+  .footer-brand span { font-family: 'Lato', sans-serif; font-size: 11px; color: rgba(255,255,255,0.35); font-weight: 300; display: block; margin-top: 2px; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { color: rgba(255,255,255,0.38); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+  .footer-links a:hover { color: rgba(255,255,255,0.7); }
+
+  /* ── WHATSAPP FLOAT ── */
+  .wa-float {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    background: #25D366;
+    color: #fff;
+    width: 54px; height: 54px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+    z-index: 50;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .wa-float:hover { transform: scale(1.08); box-shadow: 0 6px 24px rgba(0,0,0,0.22); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .section, .section-alt, .section-rose, .section-dark { padding: 52px 20px; }
+    #hero { padding: 60px 20px 52px; }
+    #hero h1 { font-size: 34px; }
+    .lang-bar { padding: 6px 20px; }
+    nav { padding: 0 20px; height: 58px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .tiers { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; gap: 28px; }
+    .steps::before { display: none; }
+    .step { text-align: left; display: flex; gap: 16px; align-items: flex-start; }
+    .step-num { margin: 0; flex-shrink: 0; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-aside { position: static; }
+    footer { flex-direction: column; align-items: flex-start; padding: 28px 20px; }
+    .trust-row { gap: 16px; }
+  }
+
+  /* ── LANGUAGE SWITCH ── */
+  [data-lang] { display: none; }
+  .lang-en [data-lang="en"] { display: block; }
+  .lang-en [data-lang="en"].inline-flex { display: inline-flex; }
+  .lang-es [data-lang="es"] { display: block; }
+  .lang-es [data-lang="es"].inline-flex { display: inline-flex; }
+  html.lang-en [data-lang="en"],
+  html.lang-es [data-lang="es"] { display: revert; }
+
+  span[data-lang] { display: none !important; }
+  html.lang-en span[data-lang="en"] { display: inline !important; }
+  html.lang-es span[data-lang="es"] { display: inline !important; }
+</style>
+</head>
+<body>
+
+<!-- LANG BAR -->
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+  <button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">
+    Raíces
+    <span><span data-lang="en">Argentina Relocation & Travel Experts</span><span data-lang="es">Expertos en Relocalización y Viajes en Argentina</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="#services"><span data-lang="en">Services</span><span data-lang="es">Servicios</span></a>
+    <a href="#about"><span data-lang="en">About</span><span data-lang="es">Nosotros</span></a>
+    <a href="#how"><span data-lang="en">How it works</span><span data-lang="es">Cómo funciona</span></a>
+    <a href="https://wa.me/5491176775364" class="nav-wa" target="_blank" rel="noopener">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.523 5.837L.057 23.882a.5.5 0 00.61.61l6.044-1.466A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.934a9.925 9.925 0 01-5.032-1.364l-.361-.214-3.735.907.922-3.636-.235-.374A9.934 9.934 0 012.066 12C2.066 6.511 6.511 2.066 12 2.066S21.934 6.511 21.934 12 17.489 21.934 12 21.934z"/></svg>
+      <span data-lang="en">Get in touch</span><span data-lang="es">Contáctanos</span>
+    </a>
+  </div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="toggleMenu()">✕</button>
+  <a href="#services" onclick="toggleMenu()"><span data-lang="en">Services</span><span data-lang="es">Servicios</span></a>
+  <a href="#about" onclick="toggleMenu()"><span data-lang="en">About</span><span data-lang="es">Nosotros</span></a>
+  <a href="#how" onclick="toggleMenu()"><span data-lang="en">How it works</span><span data-lang="es">Cómo funciona</span></a>
+  <a href="https://wa.me/5491176775364" target="_blank" rel="noopener"><span data-lang="en">WhatsApp us</span><span data-lang="es">Escribinos</span></a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Buenos Aires · Argentina</p>
+    <h1>
+      <span data-lang="en">Argentina is calling.<br>We make sure <em>you're ready</em> for it.</span>
+      <span data-lang="es">Argentina te llama.<br>Nosotros te preparamos <em>para vivirla.</em></span>
+    </h1>
+    <p class="hero-p">
+      <span data-lang="en">Whether you're visiting for two weeks, working remotely for a season, or making Argentina your permanent home — Raíces handles the complexity so you don't have to. Professional, bilingual, built on genuine local expertise.</span>
+      <span data-lang="es">Ya sea que estés de visita por dos semanas, trabajando de forma remota por una temporada o haciendo de Argentina tu hogar permanente — Raíces se encarga de la complejidad para que vos no tengas que hacerlo.</span>
+    </p>
+    <div class="hero-btns">
+      <a href="https://wa.me/5491176775364" class="btn-rose" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.523 5.837L.057 23.882a.5.5 0 00.61.61l6.044-1.466A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.934a9.925 9.925 0 01-5.032-1.364l-.361-.214-3.735.907.922-3.636-.235-.374A9.934 9.934 0 012.066 12C2.066 6.511 6.511 2.066 12 2.066S21.934 6.511 21.934 12 17.489 21.934 12 21.934z"/></svg>
+        <span data-lang="en">Message us on WhatsApp</span><span data-lang="es">Escribinos por WhatsApp</span>
+      </a>
+      <a href="#services" class="btn-ghost">
+        <span data-lang="en">Explore our services</span><span data-lang="es">Ver servicios</span>
+      </a>
+    </div>
+    <div class="trust-row">
+      <div class="trust-item"><div class="trust-line"></div><span data-lang="en">English & Spanish</span><span data-lang="es">Inglés y Español</span></div>
+      <div class="trust-item"><div class="trust-line"></div><span data-lang="en">Based in Buenos Aires</span><span data-lang="es">Con base en Buenos Aires</span></div>
+      <div class="trust-item"><div class="trust-line"></div><span data-lang="en">Reply within 2 hours</span><span data-lang="es">Respuesta en 2 horas</span></div>
+      <div class="trust-item"><div class="trust-line"></div><span data-lang="en">No bots. Real people.</span><span data-lang="es">Sin bots. Personas reales.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <p class="eyebrow"><span data-lang="en">What we do</span><span data-lang="es">Lo que hacemos</span></p>
+  <h2 class="section-title"><span data-lang="en">One company. Every stage of your journey.</span><span data-lang="es">Una empresa. Cada etapa de tu camino.</span></h2>
+  <p class="section-sub"><span data-lang="en">From a curated weekend in Buenos Aires to a full relocation with visas, housing, and banking — we have a service designed for exactly where you are.</span><span data-lang="es">Desde un fin de semana curado en Buenos Aires hasta una relocalización completa con visas, vivienda y cuentas bancarias — tenemos un servicio diseñado para donde estás.</span></p>
+  <div class="tiers">
+    <div class="tier-card">
+      <div class="tier-top">
+        <div class="tier-icon">✈️</div>
+        <div class="tier-label">Explore</div>
+        <div class="tier-name"><span data-lang="en">Tourists & short visits</span><span data-lang="es">Turistas y visitas cortas</span></div>
+      </div>
+      <div class="tier-body">
+        <p class="tier-who"><span data-lang="en">3 to 14 days — visitors who want more than a guidebook can offer.</span><span data-lang="es">3 a 14 días — visitantes que quieren más de lo que ofrece una guía.</span></p>
+        <ul class="tier-list">
+          <li><span data-lang="en">Custom itineraries built around you</span><span data-lang="es">Itinerarios personalizados</span></li>
+          <li><span data-lang="en">Private city tours & curated experiences</span><span data-lang="es">City tours privados y experiencias curadas</span></li>
+          <li><span data-lang="en">Transfers and on-the-ground logistics</span><span data-lang="es">Traslados y logística</span></li>
+          <li><span data-lang="en">Restaurant & culture recommendations</span><span data-lang="es">Recomendaciones gastronómicas y culturales</span></li>
+        </ul>
+        <div class="tier-price">From USD 150<small><span data-lang="en">Per package</span><span data-lang="es">Por paquete</span></small></div>
+      </div>
+    </div>
+    <div class="tier-card featured">
+      <div class="tier-top">
+        <div class="tier-badge"><span data-lang="en">Most popular</span><span data-lang="es">Más popular</span></div>
+        <div class="tier-icon">💻</div>
+        <div class="tier-label">Settle</div>
+        <div class="tier-name"><span data-lang="en">Digital nomads</span><span data-lang="es">Nómadas digitales</span></div>
+      </div>
+      <div class="tier-body">
+        <p class="tier-who"><span data-lang="en">1 to 6 months — remote workers setting up a real base in BA.</span><span data-lang="es">1 a 6 meses — trabajadores remotos que se instalan en BA.</span></p>
+        <ul class="tier-list">
+          <li><span data-lang="en">Apartment search & lease management</span><span data-lang="es">Búsqueda de departamento y gestión de contrato</span></li>
+          <li><span data-lang="en">SIM card, internet & connectivity setup</span><span data-lang="es">SIM card, internet y conectividad</span></li>
+          <li><span data-lang="en">Coworking access & recommendations</span><span data-lang="es">Acceso a coworkings</span></li>
+          <li><span data-lang="en">Full local onboarding pack</span><span data-lang="es">Pack de bienvenida local completo</span></li>
+        </ul>
+        <div class="tier-price">From USD 300<small><span data-lang="en">Per stay</span><span data-lang="es">Por estadía</span></small></div>
+      </div>
+    </div>
+    <div class="tier-card">
+      <div class="tier-top">
+        <div class="tier-icon">🏡</div>
+        <div class="tier-label">Relocate</div>
+        <div class="tier-name"><span data-lang="en">Expats & families</span><span data-lang="es">Expatriados y familias</span></div>
+      </div>
+      <div class="tier-body">
+        <p class="tier-who"><span data-lang="en">6+ months — full relocation management for individuals and families.</span><span data-lang="es">6+ meses — gestión completa de relocalización para personas y familias.</span></p>
+        <ul class="tier-list">
+          <li><span data-lang="en">Visa & residency advisory</span><span data-lang="es">Asesoramiento de visa y residencia</span></li>
+          <li><span data-lang="en">Permanent housing search & banking</span><span data-lang="es">Búsqueda de vivienda permanente y bancaria</span></li>
+          <li><span data-lang="en">Schools, doctors & legal network</span><span data-lang="es">Colegios, médicos y red legal</span></li>
+          <li><span data-lang="en">Monthly retainer support</span><span data-lang="es">Soporte mensual (retainer)</span></li>
+        </ul>
+        <div class="tier-price">From USD 1,000<small><span data-lang="en">Onboarding package</span><span data-lang="es">Paquete de onboarding</span></small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section-alt" id="why">
+  <p class="eyebrow"><span data-lang="en">Why Raíces</span><span data-lang="es">Por qué Raíces</span></p>
+  <h2 class="section-title"><span data-lang="en">The local knowledge you can't Google.</span><span data-lang="es">El conocimiento local que no se googlea.</span></h2>
+  <p class="section-sub"><span data-lang="en">We're not a travel agency. We're not a law firm. We're the trusted local contact you wish you'd had from day one.</span><span data-lang="es">No somos una agencia de viajes ni un estudio jurídico. Somos el contacto local de confianza que deseabas tener desde el primer día.</span></p>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">👥</div>
+      <div class="why-title"><span data-lang="en">People, not platforms</span><span data-lang="es">Personas, no plataformas</span></div>
+      <p class="why-text"><span data-lang="en">You work directly with us from the first message to the last paperwork. No call centres, no automated replies, no three-day waits.</span><span data-lang="es">Trabajás directamente con nosotros desde el primer mensaje. Sin call centres ni respuestas automáticas.</span></p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📍</div>
+      <div class="why-title"><span data-lang="en">We actually live here</span><span data-lang="es">Realmente vivimos acá</span></div>
+      <p class="why-text"><span data-lang="en">Buenos Aires-based and deeply rooted. Our network of lawyers, agents and doctors took years to build — you get it from day one.</span><span data-lang="es">Con base en Buenos Aires y profundamente arraigados. Nuestra red de abogados, agentes y médicos tardó años en construirse — vos la tenés desde el día uno.</span></p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🌐</div>
+      <div class="why-title"><span data-lang="en">Truly bilingual</span><span data-lang="es">Verdaderamente bilingüe</span></div>
+      <p class="why-text"><span data-lang="en">We operate entirely in English and Spanish — no translation gaps, no misread contracts, no awkward in-between conversations.</span><span data-lang="es">Operamos completamente en inglés y español. Sin brechas de traducción ni contratos mal interpretados.</span></p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🛡️</div>
+      <div class="why-title"><span data-lang="en">With you the whole way</span><span data-lang="es">Con vos todo el camino</span></div>
+      <p class="why-text"><span data-lang="en">From your first question to your first year settled — our retainer clients have a local ally on call for whatever Argentina throws at them.</span><span data-lang="es">Desde tu primera pregunta hasta tu primer año instalado — nuestros clientes de retainer tienen un aliado local disponible.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <p class="eyebrow"><span data-lang="en">About Raíces</span><span data-lang="es">Sobre Raíces</span></p>
+  <div class="about-grid">
+    <div class="about-text">
+      <h2 class="section-title"><span data-lang="en">Local, but never just one thing.</span><span data-lang="es">Local, pero nunca solo una cosa.</span></h2>
+      <p><span data-lang="en">I've lived in Argentina my whole life, in a multicultural family where more than one language and more than one culture were just normal at home. I've also traveled a lot, so I know what it's like to be the foreigner trying to figure things out in a new place.</span><span data-lang="es">Viví toda mi vida en Argentina, en una familia multicultural donde más de un idioma y más de una cultura eran simplemente lo cotidiano. También viajé mucho, así que sé lo que es ser el extranjero tratando de entender cómo funciona todo en un lugar nuevo.</span></p>
+      <p><span data-lang="en">For years, friends and friends-of-friends moving to Buenos Aires would call me with the same questions — where to rent, how banking works, which neighbourhood makes sense. I always helped. Eventually I realized that wasn't just a favour, it was a real service people needed.</span><span data-lang="es">Durante años, amigos y conocidos que se mudaban a Buenos Aires me llamaban con las mismas preguntas — dónde alquilar, cómo funciona el banco, qué barrio conviene. Siempre ayudé. Con el tiempo me di cuenta de que no era solo un favor, sino un servicio real que la gente necesitaba.</span></p>
+      <div class="credentials">
+        <div class="cred-pill">🎓 <span data-lang="en">Hotel Management graduate</span><span data-lang="es">Licenciado en Hotelería</span></div>
+        <div class="cred-pill">🏨 <span data-lang="en">Palacio Duhau Park Hyatt Buenos Aires</span><span data-lang="es">Palacio Duhau Park Hyatt Buenos Aires</span></div>
+        <div class="cred-pill">🏨 <span data-lang="en">Panamericano Buenos Aires</span><span data-lang="es">Panamericano Buenos Aires</span></div>
+        <div class="cred-pill">✈️ <span data-lang="en">Travel Agency Manager, Dublin</span><span data-lang="es">Gerente de Agencia de Viajes, Dublín</span></div>
+      </div>
+      <p><span data-lang="en">I studied hotel management and worked at properties like Palacio Duhau Park Hyatt and Panamericano Buenos Aires before going on to manage a travel agency in Dublin. Years of high-end hospitality, followed by years of handling international travel logistics — that combination is exactly what Raíces is built on.</span><span data-lang="es">Estudié hotelería y trabajé en propiedades como el Palacio Duhau Park Hyatt y el Panamericano Buenos Aires, antes de gestionar una agencia de viajes en Dublín. Años de hospitalidad de alto nivel, seguidos de años de logística de viajes internacionales — esa combinación es exactamente sobre lo que se construyó Raíces.</span></p>
+      <p><strong><span data-lang="en">Local knowledge, international experience, and a genuine understanding of what it's like to come from somewhere else.</span><span data-lang="es">Conocimiento local, experiencia internacional y una comprensión genuina de lo que significa venir de otro lugar.</span></strong></p>
+    </div>
+    <div class="about-aside">
+      <div class="aside-quote"><span data-lang="en">"Argentina is extraordinary. Getting settled here shouldn't feel impossible."</span><span data-lang="es">"Argentina es extraordinaria. Instalarse aquí no debería sentirse imposible."</span></div>
+      <p class="aside-note"><span data-lang="en">Most clients reach out with a question. That first conversation is always free — no obligation, no pitch.</span><span data-lang="es">La mayoría de los clientes se contactan con una pregunta. Esa primera conversación siempre es gratuita.</span></p>
+      <a href="https://wa.me/5491176775364" class="aside-btn" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.523 5.837L.057 23.882a.5.5 0 00.61.61l6.044-1.466A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.934a9.925 9.925 0 01-5.032-1.364l-.361-.214-3.735.907.922-3.636-.235-.374A9.934 9.934 0 012.066 12C2.066 6.511 6.511 2.066 12 2.066S21.934 6.511 21.934 12 17.489 21.934 12 21.934z"/></svg>
+        <span data-lang="en">Start a conversation</span><span data-lang="es">Iniciar conversación</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section-rose" id="testimonials">
+  <p class="eyebrow"><span data-lang="en">Testimonials</span><span data-lang="es">Testimonios</span></p>
+  <h2 class="section-title"><span data-lang="en">What our clients say</span><span data-lang="es">Lo que dicen nuestros clientes</span></h2>
+  <p class="section-sub"><span data-lang="en">Replace these with real client quotes as they come in.</span><span data-lang="es">Reemplazá estos con testimonios reales a medida que lleguen.</span></p>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <p class="testi-text"><span data-lang="en">"Moving from New York to Buenos Aires felt overwhelming until we found Raíces. They handled our apartment, visas, and even helped us find a paediatrician. Worth every dollar."</span><span data-lang="es">"Mudarnos de Nueva York a Buenos Aires parecía abrumador hasta que encontramos a Raíces. Se encargaron del departamento, las visas e incluso nos ayudaron a encontrar un pediatra."</span></p>
+      <div class="testi-author">
+        <div class="testi-avatar">JM</div>
+        <div>
+          <div class="testi-name">James M.</div>
+          <div class="testi-from"><span data-lang="en">Relocated from New York, USA</span><span data-lang="es">Relocado desde Nueva York, EE.UU.</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <p class="testi-text"><span data-lang="en">"I spent four months working remotely from Buenos Aires. Raíces had my apartment ready before I landed and a coworking desk sorted by day two. Absolutely seamless."</span><span data-lang="es">"Pasé cuatro meses trabajando de forma remota desde Buenos Aires. Raíces tenía mi departamento listo antes de aterrizar y un escritorio en coworking el segundo día."</span></p>
+      <div class="testi-author">
+        <div class="testi-avatar">SK</div>
+        <div>
+          <div class="testi-name">Sophie K.</div>
+          <div class="testi-from"><span data-lang="en">Digital nomad, London, UK</span><span data-lang="es">Nómada digital, Londres, Reino Unido</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <p class="testi-text"><span data-lang="en">"I came for two weeks and left with a list of places I'm already planning to return to. Every single recommendation was exactly right."</span><span data-lang="es">"Vine por dos semanas y me fui con una lista de lugares a los que ya planeo volver. Cada recomendación fue exactamente la indicada."</span></p>
+      <div class="testi-author">
+        <div class="testi-avatar">MC</div>
+        <div>
+          <div class="testi-name">Marie C.</div>
+          <div class="testi-from"><span data-lang="en">Visitor from Lyon, France</span><span data-lang="es">Visitante de Lyon, Francia</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="section-dark" id="how">
+  <p class="eyebrow eyebrow-light"><span data-lang="en">How it works</span><span data-lang="es">Cómo funciona</span></p>
+  <h2 class="section-title section-title-light" style="text-align:center;margin-bottom:14px;"><span data-lang="en">Three steps. No commitment to start.</span><span data-lang="es">Tres pasos. Sin compromiso para empezar.</span></h2>
+  <p class="section-sub section-sub-light" style="text-align:center;margin:0 auto 48px;"><span data-lang="en">Most clients go from first message to fully onboarded in under a week.</span><span data-lang="es">La mayoría de los clientes pasan del primer mensaje al onboarding completo en menos de una semana.</span></p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-title"><span data-lang="en">Message us on WhatsApp</span><span data-lang="es">Escribinos por WhatsApp</span></div>
+      <p class="step-desc"><span data-lang="en">Tell us what brings you to Argentina. No forms, no intake calls. Just a real conversation. We reply within 2 hours.</span><span data-lang="es">Contanos qué te trae a Argentina. Sin formularios. Solo una conversación real. Respondemos en 2 horas.</span></p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-title"><span data-lang="en">Free 30-min consultation</span><span data-lang="es">Consulta gratuita de 30 min</span></div>
+      <p class="step-desc"><span data-lang="en">We listen and recommend the right service tier for your needs. No pressure — just clarity.</span><span data-lang="es">Escuchamos y recomendamos el servicio adecuado para tu situación. Sin presión, solo claridad.</span></p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-title"><span data-lang="en">We get to work</span><span data-lang="es">Nos ponemos a trabajar</span></div>
+      <p class="step-desc"><span data-lang="en">We handle the logistics, the paperwork, and the surprises. You focus on your life.</span><span data-lang="es">Nos encargamos de la logística, el papeleo y las sorpresas. Vos enfocate en tu vida.</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="section" style="background:var(--olive);padding:72px 40px;">
+  <div class="cta-inner">
+    <p class="eyebrow eyebrow-light"><span data-lang="en">Get started</span><span data-lang="es">Empezá ahora</span></p>
+    <h2><span data-lang="en">Ready to make Argentina your home?</span><span data-lang="es">¿Listo para hacer de Argentina tu hogar?</span></h2>
+    <p><span data-lang="en">Whether you have a detailed plan or just a question — we're here. No forms, no waiting. One message and we're on it.</span><span data-lang="es">Tengas un plan detallado o solo una pregunta, estamos acá. Sin formularios, sin esperas. Un mensaje y arrancamos.</span></p>
+    <a href="https://wa.me/5491176775364" class="btn-rose" target="_blank" rel="noopener" style="display:inline-flex;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.523 5.837L.057 23.882a.5.5 0 00.61.61l6.044-1.466A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.934a9.925 9.925 0 01-5.032-1.364l-.361-.214-3.735.907.922-3.636-.235-.374A9.934 9.934 0 012.066 12C2.066 6.511 6.511 2.066 12 2.066S21.934 6.511 21.934 12 17.489 21.934 12 21.934z"/></svg>
+      <span data-lang="en">Start on WhatsApp</span><span data-lang="es">Escribinos por WhatsApp</span>
+    </a>
+    <p class="cta-note"><span data-lang="en">Replace the WhatsApp number in the code with your real number before publishing.</span><span data-lang="es">Reemplazá el número de WhatsApp en el código con tu número real antes de publicar.</span></p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    Raíces
+    <span><span data-lang="en">Argentina Relocation & Travel Experts</span><span data-lang="es">Expertos en Relocalización y Viajes en Argentina</span></span>
+  </div>
+  <div class="footer-links">
+    <a href="#services"><span data-lang="en">Services</span><span data-lang="es">Servicios</span></a>
+    <a href="#about"><span data-lang="en">About</span><span data-lang="es">Nosotros</span></a>
+    <a href="https://wa.me/5491176775364" target="_blank" rel="noopener">WhatsApp</a>
+    <a href="#">Instagram</a>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/5491176775364" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.112 1.523 5.837L.057 23.882a.5.5 0 00.61.61l6.044-1.466A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.934a9.925 9.925 0 01-5.032-1.364l-.361-.214-3.735.907.922-3.636-.235-.374A9.934 9.934 0 012.066 12C2.066 6.511 6.511 2.066 12 2.066S21.934 6.511 21.934 12 17.489 21.934 12 21.934z"/></svg>
+</a>
+
+<script>
+  // Language toggle
+  function setLang(lang) {
+    document.documentElement.className = 'lang-' + lang;
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+    localStorage.setItem('raices-lang', lang);
+  }
+
+  // Init language
+  const saved = localStorage.getItem('raices-lang') || 'en';
+  setLang(saved);
+
+  // Mobile menu
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  }
+
+  // Smooth active nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 80) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? '#fff' : '';
+    });
+  });
+</script>
+</body>
+</html>
